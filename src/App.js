@@ -10,7 +10,7 @@ function App() {
   return (
     <div className=" h-screen relative">
       <div className=" sticky top-0">
-        <Header />{" "}
+        <Header cart={cart}/>{" "}
       </div>
       {/* <h1>Welcome to React Router!</h1> */}
       <Routes>

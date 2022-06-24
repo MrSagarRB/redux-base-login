@@ -17,7 +17,7 @@ const SingleProduct = ({ prod, cart, setCart }) => {
         <button
           className="bg-purple-700 text-white px-2 py-1 w-[200px] ml-auto mr-auto "
           onClick={() => {
-            setCart(card.filter((c)=>c.id !== prod.id));
+            setCart(cart.filter((c) => c.id !== prod.id));
           }}
         >
           {" "}
