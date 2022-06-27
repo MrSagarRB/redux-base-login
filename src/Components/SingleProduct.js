@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { ContextProvider } from "../Context";
 
-const SingleProduct = ({ prod, cart, setCart }) => {
+const SingleProduct = ({ prod }) => {
+  const { cart, setCart } = useContext(ContextProvider);
+
   return (
     <div className=" w-[250px] flex flex-col gap-1  cursor-pointer ">
       <div className="w-full h-[200px] hover:grayscale">
@@ -12,6 +15,14 @@ const SingleProduct = ({ prod, cart, setCart }) => {
         <span className="text-sm"> {prod.name}</span>
         <span className="text-sm"> Rs. {prod.price.substring(0, 3)} </span>
       </div>
+      {/* <button
+        className="border-[1px]"
+        onClick={() => {
+          setCart([...cart, prod]);
+        }}
+      >
+        Add to Cart
+      </button> */}
 
       {cart.includes(prod) ? (
         <button

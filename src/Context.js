@@ -1,9 +1,19 @@
-import React from "react";
+// import {createContext} from  "react";
 
-const Cart = createContext();
+// export const CartContext= createContext({})
+import React, { createContext, useState } from 'react'
 
-const context = (chilren) => {
-  return <Card.Provider>{chilren}</Card.Provider>;
-};
+export const ContextProvider=createContext();
 
-export default context;
+const Context = ({children}) => {
+    
+const [cart, setCart] = useState([]);
+
+  return (
+      <ContextProvider.Provider value={{ cart, setCart }}>
+       {children}
+    </ContextProvider.Provider>
+  )
+}
+
+export default Context

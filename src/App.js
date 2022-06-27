@@ -1,25 +1,31 @@
-import React,{useState} from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 import Cart from "./Components/Cart";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
-
+import Sagar from "./Components/Sagar";
+import { CartContext } from "./Context";
+import Context from "./Context";
 function App() {
-    let [cart,setCart]=useState([])
+  const [cart, setCart] = useState([]);
   return (
     <div className=" h-screen relative">
-      <div className=" sticky top-0">
-        <Header cart={cart}/>{" "}
-      </div>
-      {/* <h1>Welcome to React Router!</h1> */}
-      <Routes>
-        <Route path="/" element={<Home cart={cart} setCart={setCart} />} />
-        <Route path="/cart" element={<Cart cart={cart} setCart={setCart}  />} />
-      </Routes>
-      <div className="  w-full  absolute bottom-0">
-        <Footer />
-      </div>
+      <Context >
+        <BrowserRouter>
+          <div className=" sticky top-0">
+            <Header />
+          </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/sag" element={<Sagar />} />
+          </Routes>
+          <div className="w-full absolute bottom-0">
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </Context>
     </div>
   );
 }
